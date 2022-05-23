@@ -5,7 +5,6 @@
 
 
 import javax.swing.*;
-import java.sql.Connection;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -21,7 +20,7 @@ public class Main {
 
 
         Interfaz tabla = new Interfaz();
-        Arraymethods insertar = new Arraymethods();
+        Methods insertar = new Methods();
 
 
 

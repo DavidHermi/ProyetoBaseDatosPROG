@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.sql.*;
 
 
-public class Arraymethods {
+public class Methods {
    ModeloDatos modelo = new ModeloDatos();
 
 
@@ -44,13 +44,18 @@ public void  inserta (int id, String name, int age ) {
 
     public void  update (String name,int age,int id ) {
         Conexion conex = new Conexion();
-
+        modelo.setId(id);
+        modelo.setName(name);
+        modelo.setAge(age);
         try {
-            Statement consulta = conex.getConnection().createStatement();
+          PreparedStatement ps = conex.getConnection().prepareStatement("UPDATE  tablatrabajobasedatos set   Name=? , age=? where ID=? ");
 
            // consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='"+name+"',age="+age+"where ID="+id+";");
-            consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='Hector' , age=19 where ID=3 ");
-            consulta.close();
+            ps.setInt(1,modelo.getId());
+            ps.setString(2,modelo.getName());
+            ps.setInt(3,modelo.getAge());
+            ps.executeUpdate();
+            ps.close();
             conex.Desconectar();
 
         } catch (Exception e) {

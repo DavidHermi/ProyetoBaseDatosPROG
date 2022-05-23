@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class Interfaz {
 
-    Arraymethods obx = new Arraymethods();
+    Methods obx = new Methods();
 
 
     public void tabla() throws SQLException {
