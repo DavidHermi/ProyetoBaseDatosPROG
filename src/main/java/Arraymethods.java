@@ -4,31 +4,46 @@ import java.sql.*;
 
 public class Arraymethods {
 
-    /*public ResultSet listaDePersonas() {
 
-        Conexion conex = new Conexion();
-        ResultSet res = null;
-        try {
-            PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM tablatrabajobasedatos");
-            res = consulta.executeQuery();
+/*
+    public static int insertage(){
 
-           // conex.Desconectar();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n" + e);
-        }
-        return res;
-
+       String Auxage = JOptionPane.showInputDialog(null, "Introduzca la edad") ;
+       int age = Integer.parseInt(Auxage);
+       return age ;
     }
-*/
 
-public void  inserta (int id,String name,int age ) {
+    public static String insertName(){
+
+        String Name = JOptionPane.showInputDialog(null, "Introduzca el nombre") ;
+        return Name ;
+    }
+
+
+
+    public static int insertid(){
+
+        String Auxid = JOptionPane.showInputDialog(null, "Introduzca la id") ;
+        int id = Integer.parseInt(Auxid);
+        return id ;
+    }
+    */
+
+public void  inserta (int id, String name, int age ) {
     Conexion conex = new Conexion();
+   /* int ID = insertid() ;
+   String Name = insertName() ;
+   int age = insertage() ;
+   */
 
     try {
         Statement consulta = conex.getConnection().createStatement();
-      //   consulta.executeQuery("INSERT INTO tablatrabajobasedatos values ( "+id+","+"'"+name+"',"+"'"+age+"')");
-           consulta.executeUpdate("INSERT INTO tablatrabajobasedatos values (2,'Carlota',19)");
+        consulta.executeQuery("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
+
+
+
+
+          // consulta.executeUpdate("INSERT INTO tablatrabajobasedatos values (ID,Name,age)");
            consulta.close();
         conex.Desconectar();
 
@@ -46,7 +61,7 @@ public void  inserta (int id,String name,int age ) {
             Statement consulta = conex.getConnection().createStatement();
 
            // consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='"+name+"',age="+age+"where ID="+id+";");
-            consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='Pepe' , age=13 where ID=2 ");
+            consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='Hector' , age=19 where ID=3 ");
             consulta.close();
             conex.Desconectar();
 
