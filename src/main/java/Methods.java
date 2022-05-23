@@ -8,10 +8,7 @@ public class Methods {
 
     public void inserta(int id, String name, int age) {
         Conexion conex = new Conexion();
-   /* int ID = insertid() ;
-   String Name = insertName() ;
-   int age = insertage() ;
-   */
+
 
         PreparedStatement ps = null;
         String sql;

@@ -6,7 +6,6 @@ import java.sql.*;
 
 public class Interfaz {
 
-    Methods obx = new Methods();
 
 
     public void tabla() throws SQLException {
@@ -30,7 +29,6 @@ Conexion con = new Conexion();
             data[i][2] = age + "";
             i++;
         }
-
         DefaultTableModel model = new DefaultTableModel(data, columns);
         JTable table = new JTable(model);
         table.setShowGrid(true);
