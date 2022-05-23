@@ -3,31 +3,9 @@ import java.sql.*;
 
 
 public class Arraymethods {
+   ModeloDatos modelo = new ModeloDatos();
 
 
-/*
-    public static int insertage(){
-
-       String Auxage = JOptionPane.showInputDialog(null, "Introduzca la edad") ;
-       int age = Integer.parseInt(Auxage);
-       return age ;
-    }
-
-    public static String insertName(){
-
-        String Name = JOptionPane.showInputDialog(null, "Introduzca el nombre") ;
-        return Name ;
-    }
-
-
-
-    public static int insertid(){
-
-        String Auxid = JOptionPane.showInputDialog(null, "Introduzca la id") ;
-        int id = Integer.parseInt(Auxid);
-        return id ;
-    }
-    */
 
 public void  inserta (int id, String name, int age ) {
     Conexion conex = new Conexion();
@@ -36,15 +14,25 @@ public void  inserta (int id, String name, int age ) {
    int age = insertage() ;
    */
 
+    PreparedStatement ps = null;
+    String sql;
+    modelo.setId(id);
+    modelo.setName(name);
+    modelo.setAge(age);
+
+
     try {
-        Statement consulta = conex.getConnection().createStatement();
-        consulta.executeQuery("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
+       ps = conex.getConnection().prepareStatement("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
 
 
 
-
+        ps.setInt(1,modelo.getId());
+        ps.setString(2,modelo.getName());
+        ps.setInt(3,modelo.getAge());
+        ps.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Se han insertado los datos");
           // consulta.executeUpdate("INSERT INTO tablatrabajobasedatos values (ID,Name,age)");
-           consulta.close();
+           ps.close();
         conex.Desconectar();
 
     } catch (Exception e) {
@@ -79,7 +67,7 @@ public void  inserta (int id, String name, int age ) {
             Statement consulta = conex.getConnection().createStatement();
 
 
-            consulta.executeUpdate("DELETE FROM tablatrabajobasedatos  where ID=2 ");
+            consulta.executeUpdate("DELETE FROM tablatrabajobasedatos  where ID=0  ");
             consulta.close();
             conex.Desconectar();
 

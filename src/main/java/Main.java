@@ -25,19 +25,19 @@ public class Main {
 
 
 
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Menú: \n 1.Insertar taboa. \n 2.Updatear taboa. \n 3.Deletear taboa. "));
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Menú: \n 1.Insertar taboa. \n 2.Updatear taboa. \n 3.Deletear taboa. \n 4.Mostrar taboa. "));
 
         do {
             switch (opcion) {
                 case 1:
-                    insertar.inserta(9,"Pedro",10);
+                    insertar.inserta(7,"Pedro",10);
                     break;
 
                 case 2:
-                    insertar.update("Carlota",17,2);
+                    insertar.update("Carlota",17,3);
                     break;
                 case 3:
-                    insertar.delete(2);
+                    insertar.delete(0);
                     break;
                 case 4:
                     tabla.tabla();
