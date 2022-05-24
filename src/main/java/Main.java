@@ -36,7 +36,7 @@ public class Main {
                     insertar.update("Carlota", 17, 9);
                     break;
                 case 3:
-                    insertar.delete(7);
+                    insertar.delete(9);
                     break;
                 case 4:
                     tabla.tabla();

@@ -38,8 +38,7 @@ public class Methods {
         modelo.setName(name);
         modelo.setAge(age);
         try {
-            PreparedStatement ps = conex.getConnection().prepareStatement
-                    ("UPDATE  tablatrabajobasedatos set   Name=? , age=? where ID=? ");
+            PreparedStatement ps = conex.getConnection().prepareStatement ("UPDATE  tablatrabajobasedatos set   Name=? , age=? where ID=? ");
             // consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='"+name+"',age="+age+"where ID="+id+";");
             ps.setString(1, modelo.getName());
             ps.setInt(2, modelo.getAge());
