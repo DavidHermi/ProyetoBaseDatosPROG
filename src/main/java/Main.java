@@ -30,13 +30,13 @@ public class Main {
                     " \n 2.Updatear taboa. \n 3.Deletear taboa.\n 4.Mostrar taboa. "));
             switch (opcion) {
                 case 1:
-                    insertar.inserta(7, "Pedro", 10);
+                    insertar.inserta(9, "Hugo",47 );
                     break;
                 case 2:
-                    insertar.update("Carlota", 17, 1);
+                    insertar.update("Carlota", 17, 9);
                     break;
                 case 3:
-                    insertar.delete(1);
+                    insertar.delete(7);
                     break;
                 case 4:
                     tabla.tabla();

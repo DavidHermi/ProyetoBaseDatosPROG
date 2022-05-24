@@ -17,7 +17,7 @@ Conexion con = new Conexion();
         ResultSet res = stm.executeQuery(query);
 
         String columns[] = {"ID", "Name", "Age"};
-        String data[][] = new String[8][3];
+        String data[][] = new String[15][3];
 
         int i = 0;
         while (res.next()) {

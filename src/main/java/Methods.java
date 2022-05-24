@@ -8,19 +8,14 @@ public class Methods {
 
     public void inserta(int id, String name, int age) {
         Conexion conex = new Conexion();
-
-
         PreparedStatement ps = null;
         String sql;
         modelo.setId(id);
         modelo.setName(name);
         modelo.setAge(age);
-
-
         try {
-            ps = conex.getConnection().prepareStatement("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
-
-
+            ps = conex.getConnection().prepareStatement
+                    ("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
             ps.setInt(1, modelo.getId());
             ps.setString(2, modelo.getName());
             ps.setInt(3, modelo.getAge());
@@ -43,17 +38,15 @@ public class Methods {
         modelo.setName(name);
         modelo.setAge(age);
         try {
-            PreparedStatement ps = conex.getConnection().prepareStatement("UPDATE  tablatrabajobasedatos set   Name=? , age=? where ID=? ");
-
+            PreparedStatement ps = conex.getConnection().prepareStatement
+                    ("UPDATE  tablatrabajobasedatos set   Name=? , age=? where ID=? ");
             // consulta.executeUpdate("UPDATE  tablatrabajobasedatos set   Name='"+name+"',age="+age+"where ID="+id+";");
-
             ps.setString(1, modelo.getName());
             ps.setInt(2, modelo.getAge());
             ps.setInt(3, modelo.getId());
             ps.executeUpdate();
             ps.close();
             conex.Desconectar();
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "no se pudo insertar\n" + e);
         }
