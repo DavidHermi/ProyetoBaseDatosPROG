@@ -30,10 +30,10 @@ public class Main {
                     " \n 2.Updatear taboa. \n 3.Deletear taboa.\n 4.Mostrar taboa. "));
             switch (opcion) {
                 case 1:
-                    insertar.inserta(9, "Hugo",47 );
+                    insertar.inserta(10, "Marcos",14 );
                     break;
                 case 2:
-                    insertar.update("Carlota", 17, 9);
+                    insertar.update("pepe", 30, 9);
                     break;
                 case 3:
                     insertar.delete(9);
@@ -42,7 +42,7 @@ public class Main {
                     tabla.tabla();
                     break;
             }
-        } while (opcion < 5);
+        } while (opcion < 7);
     }
 
 

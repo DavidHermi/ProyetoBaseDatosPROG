@@ -14,8 +14,7 @@ public class Methods {
         modelo.setName(name);
         modelo.setAge(age);
         try {
-            ps = conex.getConnection().prepareStatement
-                    ("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
+            ps = conex.getConnection().prepareStatement ("INSERT INTO tablatrabajobasedatos ( ID,Name,age) values ( ?,?,? )");
             ps.setInt(1, modelo.getId());
             ps.setString(2, modelo.getName());
             ps.setInt(3, modelo.getAge());
